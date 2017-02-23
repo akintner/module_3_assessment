@@ -14,7 +14,7 @@ RSpec.describe "API can delete one item" do
   scenario "items_controller will delete one item" do 
     delete "/api/v1/items/#{@item1.id}"
 
-    expect(page.status_code).to eq(200)
+    expect(page.status_code).to eq(204)
 
     visit api_v1_items_path
     expect(page).to have_content(@item2.name)

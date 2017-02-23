@@ -9,7 +9,9 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
+    if @item.destroy
+      render :nothing => true, :status => 204
+    end
   end
 
   def create
