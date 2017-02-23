@@ -11,7 +11,12 @@ RSpec.describe "user can find search page" do
 
     fill_in :q, with: '80202'
     click_on 'Search'
+    
     expect(current_path).to eq('/search')
+    expect(page).to have_content("16 Total Stores")
+    expect(page).to have_content("BEST BUY MOBILE - CHERRY CREEK SHOPPING CENTER")
+    expect(page).to have_content("DENVER")
+    expect(page).to have_content("303-270-9189")
   end
 
 end
