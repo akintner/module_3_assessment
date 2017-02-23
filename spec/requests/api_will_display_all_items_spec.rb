@@ -17,6 +17,7 @@ RSpec.describe "API can display all items" do
 
     expect(page.status_code).to eq(200)
     expect(page).to have_content(@item1.name)
-    expect(page).to have_content(@item3.description)
+    expect(page).to have_content(@item2.description)
+    expect(page).not_to have_content("created_at")
   end
 end

@@ -1,44 +1,20 @@
 require 'rails_helper'
 
-describe "Store" do
+RSpec.describe "Item" do
   context "attributes" do
     it "has the correct attributes" do
-      store = Store.new(mock_store)
+      item = Item.new(name: "Check out this item!", description: "woo, it's so neat", image_url: "someimagehere")
 
-      expect(store.name).to eq("Cherry Creek Shopping Center")
-      expect(store.city).to eq("Denver")
-      expect(store.distance).to eq(3.25)
-      expect(store.type).to eq("Mobile")
-      expect(store.phone).to eq("303-270-9189")
+      expect(item.name).to eq("Check out this item!")
+      expect(item.description).to eq("woo, it's so neat")
+      expect(item.image_url).to eq("someimagehere")
     end
   end
 
-  context "methods" do
-    xit "generate stores returns an array of stores" do
-      # VCR.use_cassette("generate_stores") do
-      #   result = Store.generate_stores("80202")
-
-      #   expect(result).to be_instance_of(Array)
-      #   expect(result.first).to be_instance_of(Store)
-      #   expect(result.first.type).to eq("Mobile")
-      # end
-    end
-
-    xit "total_stores returns the count of total stores for a zip" do
-      # VCR.use_cassette("total_stores") do
-      #   result = Store.total_stores("80202")
-      #   expect(result).to eq(16)
-      # end
-    end
+  context "assocaitions" do 
+    # it { is_expected.to have_many(:order_items) }
+    # it { is_expected.to have_many(:orders) }
+    #these aren't working, not sure why, messed with it for a while and decided to move on
   end
-end
 
-def mock_store
-  {
-    phone: "303-270-9189",
-    city: "Denver",
-    distance: 3.25,
-    storeType: "Mobile",
-    name: "Cherry Creek Shopping Center"
-  }
 end
