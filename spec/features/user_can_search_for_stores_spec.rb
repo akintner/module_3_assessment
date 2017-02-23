@@ -8,6 +8,10 @@ RSpec.describe "user can find search page" do
 
   scenario "user can search for BestBuy stores" do 
     visit root_path
+
+    fill_in :q, with: '80202'
+    click_on 'Search'
+    expect(current_path).to eq('/search')
   end
 
 end
