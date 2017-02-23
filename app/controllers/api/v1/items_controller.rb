@@ -8,8 +8,8 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item = Item.find(params[:id])
+    @item.destroy
   end
 
   private
