@@ -9,6 +9,6 @@ class Api::V1::ItemsController < ApplicationController
 
   private
     def item_params
-      params.permit(:id, :name, :description)
+      params.permit(:id, :name, :description, :image_url)
     end
 end
