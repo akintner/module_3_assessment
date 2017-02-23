@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do 
     namespace :v1 do 
-      get "/items", to: "items#index"
-      get "/items/:id", to: "items#show"
+      resources :items, only: [:index, :show]
       get "/items/new", to: "items#new"
       post "/items", to: "items#create"
       delete "/items/:id", to: "items#delete"
