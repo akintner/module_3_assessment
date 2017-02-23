@@ -9,15 +9,14 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    if @item.destroy
-      render :nothing => true, :status => 204
-    end
+    @item.destroy
+    render :nothing => true, :status => 204
   end
 
   def create
     item = Item.new(item_params)
     if item.save
-      redirect_to api_v1_items_path
+      render :status => 201
     else 
       flash[:error]= "The item was not created"
     end
